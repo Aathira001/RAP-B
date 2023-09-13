@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessageDTO } from 'src/app/dto/messageDTO';
 
 @Component({
   selector: 'app-chatui',
@@ -7,17 +8,15 @@ import { Component } from '@angular/core';
 })
 export class ChatuiComponent {
   public userMessage: string = '';
-  public messages: any[] = [
-    { text: "Hello! How can I help you", sender: 'Bot'}]
+  public messages:MessageDTO[] = [
+    { text: "Hello! How can I help you", sender: Sender.bot}]
 
   sendMessage() {
     if (this.userMessage.trim() !== '') {
-      this.messages.push({ text: this.userMessage, sender: 'User' });
-      this.userMessage = '';  // Clear the input
-      
-      // Add a mock response from the bot after a delay
+      this.messages.push({ text: this.userMessage, sender: Sender.user });
+      this.userMessage = '';  
       setTimeout(() => {
-        this.messages.push({ text: "I'm just a mock bot, but thanks for the message!", sender: 'Bot' });
+        this.messages.push({ text: "I'm just a mock bot, but thanks for the message!", sender: Sender.bot });
       }, 1000);
     }
   }
