@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ChatuiComponent } from './components/chatui/chatui.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatInputModule} from '@angular/material/input';
 import { HeaderComponent } from './components/header/header.component';
@@ -26,7 +27,8 @@ import { FileComponent } from './components/file/file.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 <div class="chatbot-container">
     <div class="chat-content">
-      <div *ngFor="let message of messages" class="message" 
+      <div *ngFor="let message of messages | async" class="message" 
       [ngClass]="{'user': message.sender == 'User', 'bot': message.sender == 'Bot'}">
         <p>{{ message.text }}</p>
       </div>

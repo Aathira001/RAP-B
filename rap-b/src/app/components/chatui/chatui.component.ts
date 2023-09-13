@@ -1,23 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable, scan } from 'rxjs';
 import { MessageDTO } from 'src/app/dto/messageDTO';
+import { Sender } from 'src/app/enum/sender';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-chatui',
   templateUrl: './chatui.component.html',
   styleUrls: ['./chatui.component.scss']
 })
-export class ChatuiComponent {
+export class ChatuiComponent implements OnInit{
   public userMessage: string = '';
-  public messages:MessageDTO[] = [
-    { text: "Hello! How can I help you", sender: Sender.bot}]
+  conversation = new BehaviorSubject<MessageDTO[]>([]);
+  public messages!: Observable<MessageDTO[]>;
+
+  constructor(private chatService: ChatService) {}
+
+  ngOnInit(): void {
+      this.messages = this.conversation.asObservable().pipe(scan((acc, val) => acc.concat(val) ))
+  }
+
+  update(msg: MessageDTO) {
+    console.log(msg)
+    this.conversation.next([msg]);
+  }
 
   sendMessage() {
     if (this.userMessage.trim() !== '') {
-      this.messages.push({ text: this.userMessage, sender: Sender.user });
-      this.userMessage = '';  
-      setTimeout(() => {
-        this.messages.push({ text: "I'm just a mock bot, but thanks for the message!", sender: Sender.bot });
-      }, 1000);
+      const message = { text: this.userMessage, sender: Sender.user }
+      this.userMessage = ''; 
+      this.update(message)
+      this.chatService.sendQuery(message)
+      .subscribe(res => this.update(res))
     }
   }
 }

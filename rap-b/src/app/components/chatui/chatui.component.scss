@@ -31,13 +31,13 @@ $font-family: 'Arial', sans-serif; // Change this if you have a specific font in
       border-radius: 20px;
       box-shadow: $box-shadow;
 
-      &.bot {
+      &.user {
         background-color: $bot-message-bg;
         border: 1px solid $border-color;
         margin-left: 20px; 
       }
 
-      &.user {
+      &.bot {
         background-color: $user-message-bg;
         border: 1px solid $border-color;
         margin-right: 20px;
