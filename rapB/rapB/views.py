@@ -2,7 +2,8 @@ from django.conf import settings
 from django.core.files.storage import default_storage
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from rapB.rapB.src.db import create_chroma_db
+
+from .src.db import create_chroma_db
 
 
 @csrf_exempt

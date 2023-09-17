@@ -1,1 +1,23 @@
-<p>sidebar works!</p>
+<div class="navbar" [ngClass]="{'active': open}">
+    <div class="icons">
+        <div class="iconBox" routerLink="jobs" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
+            <mat-icon>cloud_upload</mat-icon> 
+        </div>   
+        <div class="iconBox" routerLink="pals"  routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
+            <mat-icon>mode_comment</mat-icon>
+        </div>
+        <div class="iconBox toggle">        
+            <mat-icon (click)="toggleSidebar()">exit_to_app</mat-icon> 
+         </div>   
+
+    </div>
+
+    <div class="list" *ngIf="open">
+        <div routerLink="jobs">
+            <p>File Upload</p>
+        </div>
+        <div routerLink="pals">
+            <p>Chat</p>
+        </div>
+    </div>
+</div>

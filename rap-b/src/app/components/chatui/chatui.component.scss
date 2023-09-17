@@ -1,24 +1,11 @@
-// Define colors and variables
-$gradient-start: #0b4832; // Light green for the top of the gradient
-$gradient-end: #0e4158;  // Light blue for the bottom of the gradient
-$chat-container-bg: rgba(7, 34, 107, 0.2); // Semi-transparent white for the chat container
-$bot-message-bg: #aeb3d3; // White background for bot's message
-$user-message-bg: rgba(255, 255, 255, 0.6); // Semi-transparent background for user's message
-$border-color: rgba(2, 17, 21, 0.5); // Border color for chat bubbles
-$box-shadow: 0 4px 6px rgba(40, 5, 73, 0.1);
-$text-color: #333;
-$font-family: 'Arial', sans-serif; // Change this if you have a specific font in mind
-
+@import "../../../assets/style/variables";
 
 
 .chatbot-container {
-  margin-left: 0.5rem;
-  width: 95%;
-  padding: 2%;
-  height: 85vh;
+  height: 83vh;
   background: $chat-container-bg; 
-  border-radius: 20px;
   box-shadow: $box-shadow;
+  padding: 1%;
 
   .chat-content {
     height: 90%;
@@ -53,11 +40,9 @@ $font-family: 'Arial', sans-serif; // Change this if you have a specific font in
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 2%;
-    bottom: 2rem;
     background: $user-message-bg;
     padding: 10px;
-    border-radius: 20px;
+    margin-top: 1%;
 
     input[type="text"] {
       flex: 1;
@@ -72,7 +57,6 @@ $font-family: 'Arial', sans-serif; // Change this if you have a specific font in
     button {
       padding: 10px 20px;
       border: none;
-      border-radius: 20px;
       background-color: $gradient-start;
       color: white;
       cursor: pointer;

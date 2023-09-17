@@ -1,1 +1,6 @@
-<app-chatui></app-chatui>
+<div class="container" [class.collapsed]="isCollapsed">
+    <app-header></app-header>
+    <app-sidebar (sideBarToggled)="toggleSidebar()"></app-sidebar>
+    <app-chatui></app-chatui>
+    <app-footer></app-footer>
+</div>
