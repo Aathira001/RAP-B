@@ -11,8 +11,7 @@ def file_upload(request):
     if request.method == 'POST':
         file = request.FILES['file']  # 'file' is the name attribute in your Angular form
         file_name = default_storage.save(f'{settings.BASE_DIR}/src/media/' + file.name, file)
-        # TODO: ONLY PASS IN THE FILE NAME
-        create_chroma_db()
+        create_chroma_db(file_name)
         return JsonResponse({'file_name': file_name})
 
 @csrf_exempt
