@@ -61,6 +61,7 @@
       color: white;
       cursor: pointer;
       transition: background-color 0.3s;
+      border-radius: 2em;
 
       &:hover {
         background-color: darken($gradient-start, 10%);

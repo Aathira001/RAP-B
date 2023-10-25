@@ -1,1 +1,30 @@
-<p>file works!</p>
+<div class="file-upload">
+    <input type="file" hidden class="file-input" #uploadFile multiple (change)="onChange($event)" />
+    <button mat-raised-button color="primary" (click)="uploadFile.click()">Upload File </button>
+</div>
+
+
+
+<div *ngIf="files.length">
+    <div  class="file-section">
+        <mat-card *ngFor="let file of files">
+            <mat-card-header>
+              <mat-card-title>File details:</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <li>Name: {{file.name}}</li>
+                <li>Type: {{file.type}}</li>
+                <li>Size: {{file.size}} bytes</li>
+            </mat-card-content>
+          </mat-card>
+    </div>
+
+  <button (click)="onUpload()" class="upload-button">Upload the file</button>
+
+  <section [ngSwitch]="status">
+    <p *ngSwitchCase="'uploading'">⏳ Uploading...</p>
+    <p *ngSwitchCase="'success'">✅ Done!</p>
+    <p *ngSwitchCase="'fail'">❌ Error!</p>
+    <p *ngSwitchDefault>😶 Waiting to upload...</p>
+  </section>
+</div>

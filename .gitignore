@@ -1,3 +1,5 @@
 rapB/db.sqlite3
 rapB/rapB/__pycache__/
 rapB/rapB/src/__pycache__/
+rapB/src/media/
+rapB/src/db/
