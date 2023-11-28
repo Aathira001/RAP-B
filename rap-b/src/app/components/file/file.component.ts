@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { throwError } from 'rxjs';
+import { ColDef, GridOptions } from 'ag-grid-community';
+import { BehaviorSubject, switchMap, throwError } from 'rxjs';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
@@ -11,10 +12,27 @@ import { FileUploadService } from 'src/app/services/file-upload.service';
 export class FileComponent {
   status: "initial" | "uploading" | "success" | "fail" = "initial";
   files: File[] = [];
+  rowData: any[] | undefined;
+  columnDefs: ColDef[] | undefined;
+  gridOptions: GridOptions | undefined;
+  private fileListTrigger = new BehaviorSubject<void|null>(null);
 
-  constructor(private http: HttpClient, private fileUpload: FileUploadService) {}
+  constructor(private fileUpload: FileUploadService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.fileListTrigger.pipe(
+      switchMap(() => this.fileUpload.getFiles())).subscribe(res => {
+      this.rowData = res['files']
+    });
+    this.fileListTrigger.next();
+
+    this.columnDefs = [
+      { field: 'name', headerName: 'File Name' , resizable: true, filter: 'agTextColumnFilter', sortable: true},
+      { field: 'size', headerName: 'File Size' }
+    ];
+
+  }
 
   onChange(event: any) {
     const files = event.target.files;
@@ -35,6 +53,7 @@ export class FileComponent {
       });
 
       this.fileUpload.uploadFiles(formData).subscribe(res => {
+        this.fileListTrigger.next();
         console.log(res)
         this.status = "success";
       }, (err) => {

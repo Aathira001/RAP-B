@@ -1,12 +1,27 @@
 
 @import "../../../assets/style/variables";
 
+:host {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+        'upload filetable'
+        'uploadfile filetable';
+}
+
+
 .file-upload {
+    grid-area: upload;
     display: flex;
     margin: 5%;
     border: 2px $gradient-end dashed;
     padding: 5%;
     justify-content: space-evenly;
+}
+
+.file-upload-list {
+    grid-area: uploadfile;
 }
 
 .file-section {
@@ -15,4 +30,8 @@
     grid-column-gap: 5%;
     grid-row-gap: 5%;
     margin: 5%;;
+}
+
+.table {
+    grid-area: filetable;
 }

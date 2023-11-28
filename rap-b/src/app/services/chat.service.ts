@@ -17,4 +17,8 @@ export class ChatService {
   public sendQuery(data: MessageDTO): Observable<MessageDTO> {
     return this.http.post<MessageDTO>(this.apiURL+'query/', data.text)
   }
+
+  public sendRagQuery(data: MessageDTO): Observable<MessageDTO> {
+    return this.http.post<MessageDTO>(this.apiURL+'ragquery/', data.text)
+  }
 }

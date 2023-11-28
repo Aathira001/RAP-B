@@ -3,3 +3,7 @@ rapB/rapB/__pycache__/
 rapB/rapB/src/__pycache__/
 rapB/src/media/
 rapB/src/db/
+Datasets/*
+rapB/data/db/*
+rapB/data/media/*
+rapB/model/*

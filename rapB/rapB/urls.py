@@ -20,5 +20,8 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('upload/', views.file_upload, name='file_upload'),
-    path('query/', views.user_query, name='user_query')
+    path('query/', views.user_query, name='user_query'),
+    path('ragquery/', views.rag_user_query, name='rag_user_query'),
+    path('getfiledetails/', views.get_file_details, name='get_file_details'),
+
 ]

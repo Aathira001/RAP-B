@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-c__%olov$2g=jrv6ltwlqa_e(ihlh4*o&l)u^%xk!p2z(pf1f#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1' ]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.22.147.75' ]
 
 
 # Application definition
@@ -55,10 +55,12 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200"
+    "http://localhost:4200",
+    "http://172.22.147.75:4200",
+    "http://172.22.147.75:8000"
 ]
 
-CSRF_TRUSTED_ORIGINS = [ "http://localhost:4200"]
+CSRF_TRUSTED_ORIGINS = [ "http://localhost:4200", "http://172.22.147.75:4200", "http://172.22.147.75:8000"]
 
 ROOT_URLCONF = 'rapB.urls'
 

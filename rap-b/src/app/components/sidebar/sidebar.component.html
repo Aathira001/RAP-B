@@ -1,5 +1,8 @@
 <div class="navbar" [ngClass]="{'active': open}">
     <div class="icons">
+        <div class="iconBox" routerLink="" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
+            <mat-icon>home</mat-icon> 
+        </div>  
         <div class="iconBox" routerLink="file" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
             <mat-icon>cloud_upload</mat-icon> 
         </div>   
@@ -13,6 +16,9 @@
     </div>
 
     <div class="list" *ngIf="open">
+        <div routerLink="">
+            <p>Home</p>
+        </div>
         <div routerLink="file">
             <p>File Upload</p>
         </div>

@@ -9,7 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,6 +19,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FileComponent } from './components/file/file.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { LandingComponent } from './components/landing/landing.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,8 @@ import { FileComponent } from './components/file/file.component';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    FileComponent
+    FileComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +39,12 @@ import { FileComponent } from './components/file/file.component';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
+    MatTableModule,
     MatIconModule,
+    MatDividerModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
