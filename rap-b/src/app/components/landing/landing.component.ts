@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -6,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
+  ragText = `Answers the query pertaining to your personal document.`;
+  sentimentText = `Analysis the sentiment/emotion of the lyrics.`;
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     console.log('hi')
+  }
+
+  navigateToChat(chatType: string): void {
+    this.router.navigate(['/chat', chatType]);
   }
 }

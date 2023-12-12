@@ -49,7 +49,7 @@ def rag_user_query(request):
     print(llm_response)
     print('******************************************')
     # response = dbqa({'query': query})
-    return JsonResponse({'text': f'{llm_response}', 'sender': 'Bot'})
+    return JsonResponse({'text': f'{llm_response["result"]}', 'sender': 'Bot', 'source': f'{llm_response["source_documents"]}'})
 
 @csrf_exempt
 def user_query(request):

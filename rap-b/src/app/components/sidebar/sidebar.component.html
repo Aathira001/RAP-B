@@ -6,7 +6,7 @@
         <div class="iconBox" routerLink="file" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
             <mat-icon>cloud_upload</mat-icon> 
         </div>   
-        <div class="iconBox" routerLink="chat"  routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
+        <div class="iconBox" [routerLink]="['chat', 'rag']"  routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
             <mat-icon>mode_comment</mat-icon>
         </div>
         <div class="iconBox toggle">        
@@ -22,7 +22,7 @@
         <div routerLink="file">
             <p>File Upload</p>
         </div>
-        <div routerLink="chat">
+        <div [routerLink]="['chat', 'rag']">
             <p>Chat</p>
         </div>
     </div>

@@ -19,14 +19,20 @@
         </mat-card>
   </div>
 
-<button (click)="onUpload()" class="upload-button">Upload the file</button>
+<div class="info">
+  <button mat-raised-button color="primary" (click)="onUpload()" class="upload-button">Upload the file</button>
 
-<section [ngSwitch]="status" >
-  <p *ngSwitchCase="'uploading'">⏳ Uploading...</p>
-  <p *ngSwitchCase="'success'">✅ Done!</p>
-  <p *ngSwitchCase="'fail'">❌ Error!</p>
-  <p *ngSwitchDefault>😶 Waiting to upload...</p>
-</section>
+  <section [ngSwitch]="status" >
+    <p *ngSwitchCase="'uploading'">⏳ Uploading...</p>
+    <p *ngSwitchCase="'success'">✅ Done!</p>
+    <p *ngSwitchCase="'fail'">❌ Error!</p>
+    <p *ngSwitchDefault>😶 Waiting to upload...</p>
+  </section>
+
+  <div *ngIf="status == 'success'">
+    <button mat-raised-button color="primary" [routerLink]="['/chat', 'rag']" class="upload-button">Chat</button>
+  </div>
+</div>
 </div>
 
 <div class="table">

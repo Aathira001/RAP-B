@@ -6,7 +6,7 @@ import { LandingComponent } from './components/landing/landing.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', component: LandingComponent},
-  {path: 'chat', component: ChatuiComponent},
+  {path: 'chat/:type', component: ChatuiComponent},
   {path: 'file', component: FileComponent}
 ];
 

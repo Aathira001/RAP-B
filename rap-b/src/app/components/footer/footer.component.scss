@@ -1,7 +1,14 @@
 @import "../../../assets/style/variables";
 
 mat-toolbar {
-    background-color: $gradient-end;
+    background-color: #0e4158;
+    display: flex;
     color: #ffffff;
     height: 7vh;
+    justify-content: flex-end;
+    justify-items: center;
+}
+
+.copy {
+    font-size: small;
 }
